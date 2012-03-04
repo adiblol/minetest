@@ -199,7 +199,7 @@
 -- - getpos() -> {x=num, y=num, z=num}
 -- - setpos(pos); pos={x=num, y=num, z=num}
 -- - moveto(pos, continuous=false): interpolated move
--- - punch(puncher, time_from_last_punch)
+-- - punch(puncher, time_from_last_punch, tool_capabilities, direction)
 --   ^ puncher = an another ObjectRef,
 --   ^ time_from_last_punch = time since last punch action of the puncher
 -- - right_click(clicker); clicker = an another ObjectRef
@@ -1121,14 +1121,14 @@ minetest.register_node("default:tree", {
 	description = "Tree",
 	tile_images = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
 	is_ground_content = true,
-	groups = {snappy=2},
+	groups = {snappy=2,choppy=2},
 })
 
 minetest.register_node("default:jungletree", {
 	description = "Jungle Tree",
 	tile_images = {"default_jungletree_top.png", "default_jungletree_top.png", "default_jungletree.png"},
 	is_ground_content = true,
-	groups = {snappy=2},
+	groups = {snappy=2,choppy=2},
 })
 
 minetest.register_node("default:junglegrass", {
@@ -1171,7 +1171,7 @@ minetest.register_node("default:cactus", {
 	description = "Cactus",
 	tile_images = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
 	is_ground_content = true,
-	groups = {snappy=2},
+	groups = {snappy=2,choppy=3},
 })
 
 minetest.register_node("default:papyrus", {
@@ -1190,7 +1190,7 @@ minetest.register_node("default:bookshelf", {
 	description = "Bookshelf",
 	tile_images = {"default_wood.png", "default_wood.png", "default_bookshelf.png"},
 	is_ground_content = true,
-	groups = {snappy=2},
+	groups = {snappy=2,choppy=3},
 })
 
 minetest.register_node("default:glass", {
@@ -1216,7 +1216,7 @@ minetest.register_node("default:fence_wood", {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
-	groups = {snappy=2},
+	groups = {snappy=2,choppy=2},
 })
 
 minetest.register_node("default:rail", {
@@ -1252,7 +1252,7 @@ minetest.register_node("default:ladder", {
 		--wall_bottom = = <default>
 		--wall_side = = <default>
 	},
-	groups = {snappy=2},
+	groups = {snappy=2,choppy=2},
 	legacy_wallmounted = true,
 })
 
@@ -1260,7 +1260,7 @@ minetest.register_node("default:wood", {
 	description = "Wood",
 	tile_images = {"default_wood.png"},
 	is_ground_content = true,
-	groups = {snappy=2},
+	groups = {snappy=2,choppy=2},
 })
 
 minetest.register_node("default:mese", {
@@ -1418,7 +1418,7 @@ minetest.register_node("default:chest", {
 		"default_chest_side.png", "default_chest_side.png", "default_chest_front.png"},
 	paramtype2 = "facedir",
 	metadata_name = "chest",
-	groups = {snappy=2},
+	groups = {snappy=2,choppy=2},
 	legacy_facedir_simple = true,
 })
 
@@ -1428,7 +1428,7 @@ minetest.register_node("default:chest_locked", {
 		"default_chest_side.png", "default_chest_side.png", "default_chest_lock.png"},
 	paramtype2 = "facedir",
 	metadata_name = "locked_chest",
-	groups = {snappy=2},
+	groups = {snappy=2,choppy=2},
 	legacy_facedir_simple = true,
 })
 
