@@ -5,6 +5,10 @@ if(RUN_IN_PLACE)
 	add_definitions ( -DRUN_IN_PLACE )
 endif(RUN_IN_PLACE)
 
+if(MY_GPU_SUCKS)
+	add_definitions ( -DMY_GPU_SUCKS )
+endif(MY_GPU_SUCKS)
+
 # Set some random things default to not being visible in the GUI
 mark_as_advanced(EXECUTABLE_OUTPUT_PATH LIBRARY_OUTPUT_PATH)
 mark_as_advanced(JTHREAD_INCLUDE_DIR JTHREAD_LIBRARY)

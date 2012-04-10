@@ -36,6 +36,8 @@ else()
 	set(BUILD_SERVER 1 CACHE BOOL "Build server")
 endif()
 
+set(MY_GPU_SUCKS 0 CACHE BOOL "Disable some graphic features that cause glitches on buggy GPUs")
+
 set(WARN_ALL 1 CACHE BOOL "Enable -Wall for Release build")
 
 if(NOT CMAKE_BUILD_TYPE)

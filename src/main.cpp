@@ -1271,6 +1271,12 @@ int main(int argc, char *argv[])
 	*/
 	//driver->setMinHardwareBufferVertexCount(50);
 
+
+	infostream<<"3D graphics initialized."<<std::endl;
+#ifdef MY_GPU_SUCKS
+	infostream<<"Compiled with MY_GPU_SUCKS enabled."<<std::endl;
+#endif
+
 	// Create time getter
 	g_timegetter = new IrrlichtTimeGetter(device);
 	

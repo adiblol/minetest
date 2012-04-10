@@ -1488,6 +1488,7 @@ bool generate_image(std::string part_of_name, video::IImage *& baseimg,
 			std::string imagename_left = sf.next("{");
 			std::string imagename_right = sf.next("{");
 
+			#ifndef MY_GPU_SUCKS
 			// Generate images for the faces of the cube
 			video::IImage *img_top = generate_image_from_scratch(
 					imagename_top, device, sourcecache);
@@ -1559,9 +1560,11 @@ bool generate_image(std::string part_of_name, video::IImage *& baseimg,
 			
 			if(rtt == NULL)
 			{
+			#endif // !MY_GPU_SUCKS
 				baseimg = generate_image_from_scratch(
 						imagename_top, device, sourcecache);
 				return true;
+			#ifndef MY_GPU_SUCKS
 			}
 
 			// Create image of render target
@@ -1575,6 +1578,7 @@ bool generate_image(std::string part_of_name, video::IImage *& baseimg,
 				image->copyTo(baseimg);
 				image->drop();
 			}
+			#endif // !MY_GPU_SUCKS
 		}
 		else
 		{

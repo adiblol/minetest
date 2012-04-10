@@ -412,6 +412,7 @@ public:
 				*/
 				if(def->inventory_texture == NULL)
 				{
+					#ifndef MY_GPU_SUCKS
 					core::dimension2d<u32> dim(64,64);
 					std::string rtt_texture_name = "INVENTORY_"
 						+ def->name + "_RTT";
@@ -441,9 +442,12 @@ public:
 					// render-to-target didn't work
 					if(def->inventory_texture == NULL)
 					{
+					#endif // !MY_GPU_SUCKS
 						def->inventory_texture =
 							tsrc->getTextureRaw(f.tname_tiles[0]);
+					#ifndef MY_GPU_SUCKS
 					}
+					#endif
 				}
 
 				/*
